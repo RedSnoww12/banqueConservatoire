@@ -16,7 +16,9 @@ namespace TestBanque
         private bool debiter = false;
         private string montantString = null;
         private double montant = 0;
-        
+        static List<Compte> lstcpt = new List<Compte>();
+        static Client Sacha = new Client(123, "AMARA", "Sacha", "ZBI");
+        static Compte c1 = new Compte(123, Sacha);
 
 
         public Form1()
@@ -26,7 +28,7 @@ namespace TestBanque
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<Compte> lstcpt = new List<Compte>();
+            
             Client Sacha = new Client(123, "AMARA", "Sacha", "ZBI");
             Client Lea = new Client(123, "LSJDFL", "Lea", "SBI");
             Compte c1 = new Compte(123, Sacha);
@@ -78,7 +80,7 @@ namespace TestBanque
 
             if (debiter == true)
             {
-                //lstcpt.c1.debiter(montant);
+                lstcpt[0].debiter(montant);
             }
 
         }
