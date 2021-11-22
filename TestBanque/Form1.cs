@@ -16,9 +16,8 @@ namespace TestBanque
         private bool debiter = false;
         private string montantString = null;
         private double montant = 0;
-        static List<Compte> lstcpt = new List<Compte>();
-        static Client Sacha = new Client(123, "AMARA", "Sacha", "ZBI");
-        static Compte c1 = new Compte(123, Sacha);
+        private int numList = 0;
+        
 
 
         public Form1()
@@ -28,19 +27,13 @@ namespace TestBanque
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            Client Sacha = new Client(123, "AMARA", "Sacha", "ZBI");
-            Client Lea = new Client(123, "LSJDFL", "Lea", "SBI");
-            Compte c1 = new Compte(123, Sacha);
-            Compte c2 = new Compte(1234, Lea);
-            Compte c3 = new Compte(12345, Lea);
+            lb.Items.Clear();
+            button1.Visible = false;
+            Settings.lstcpt.Add(Settings.c1);
+            Settings.lstcpt.Add(Settings.c2);
+            Settings.lstcpt.Add(Settings.c3);
 
-            lstcpt.Add(c1);
-            lstcpt.Add(c2);
-            lstcpt.Add(c3);
-
-
-            foreach (var compte in lstcpt)
+            foreach (var compte in Settings.lstcpt)
             {
                 lb.Items.Add(compte.Description);
             }
@@ -65,11 +58,12 @@ namespace TestBanque
             {
                 button1.Text = "Créditer";
             }
+            button1.Visible = true;
         }
 
         private void lb_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            numList = lb.SelectedIndex;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -80,8 +74,15 @@ namespace TestBanque
 
             if (debiter == true)
             {
-                lstcpt[0].debiter(montant);
+                Settings.lstcpt[numList].debiter(montant);
             }
+
+            if (crediter == true)
+            {
+                Settings.lstcpt[numList].crediter(montant);
+            }
+            Console.WriteLine(Settings.lstcpt[numList].Description);
+            Form1_Load(sender,e);
 
         }
 
@@ -98,6 +99,7 @@ namespace TestBanque
             {
                 button1.Text = "Débiter";
             }
+            button1.Visible = true;
         }
 
     }

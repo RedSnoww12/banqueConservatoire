@@ -48,7 +48,7 @@ namespace TestBanque
 
 		public void crediter(double mont)
 		{
-			solde = solde + mont;
+			this.solde = this.solde + mont;
 		}
 
 		public bool debiter(double mont)
@@ -59,7 +59,7 @@ namespace TestBanque
 			}
 			else
 			{
-				solde = solde - mont;
+				this.solde = this.solde - mont;
 				return true;
 			}
 		}
