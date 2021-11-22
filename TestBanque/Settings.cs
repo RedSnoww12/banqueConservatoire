@@ -13,11 +13,14 @@ namespace TestBanque
         private static Client sacha = new Client(123, "AMARA", "Sacha", "ZBI");
         private static Client lea = new Client(123, "LSJDFL", "Lea", "SBI");
 
+        private static List<Client> lstClt = new List<Client>();
+
         static private Compte c1 = new Compte(123, Sacha);
         static private Compte c2 = new Compte(1234, Lea);
         static private Compte c3 = new Compte(12345, Lea);
 
         internal static List<Compte> Lstcpt { get => lstcpt; set => lstcpt = value; }
+        internal static List<Client> LstClt { get => lstClt; set => lstClt = value; }
 
         internal static Compte C1 { get => c1; set => c1 = value; }
         internal static Compte C2 { get => c2; set => c2 = value; }
@@ -25,5 +28,11 @@ namespace TestBanque
 
         internal static Client Sacha { get => sacha; set => sacha = value; }
         internal static Client Lea { get => lea; set => lea = value; }
+
+        public static void clientSort(Client sacha, Client lea)
+        {
+            lstClt.Add(sacha);
+            lstClt.Add(lea);
+        }
     }
 }

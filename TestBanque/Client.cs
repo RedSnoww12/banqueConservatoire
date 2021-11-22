@@ -42,7 +42,7 @@ namespace TestBanque
 
 		public override string ToString()
 		{
-			return (this.nom + " " + this.prenom);
+			return (this.nom + " ; " + this.prenom + " ; " + this.adresse);
 		}
 	}
 }

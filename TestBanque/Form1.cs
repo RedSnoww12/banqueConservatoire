@@ -23,6 +23,9 @@ namespace TestBanque
         public Form1()
         {
             InitializeComponent();
+
+            Settings.clientSort(Settings.Sacha, Settings.Lea);
+
             Settings.Lstcpt.Add(Settings.C1);
             Settings.Lstcpt.Add(Settings.C2);
             Settings.Lstcpt.Add(Settings.C3);
@@ -32,14 +35,23 @@ namespace TestBanque
         {
             test();
             lb.Items.Clear();
-            button1.Visible = false;
+            //button1.Visible = false;
             
-
-            foreach (var compte in Settings.Lstcpt)
+            
+            if (client == false)
             {
-                lb.Items.Add(compte.Description);
+                foreach (var compte in Settings.Lstcpt)
+                {
+                    lb.Items.Add(compte.Description);
+                }
             }
-
+            else
+            {
+                foreach (var client in Settings.LstClt)
+                {
+                    lb.Items.Add(client);
+                }
+            }
         }
 
         private void cToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,11 +68,17 @@ namespace TestBanque
         {
             debiter = false;
             crediter = true;
+            client = false;
+            decouvert = false;
+
             if (crediter == true)
             {
                 button1.Text = "Créditer";
             }
+
             button1.Visible = true;
+
+            Form1_Load(sender, e);
         }
 
         private void lb_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,11 +122,17 @@ namespace TestBanque
         {
             debiter = true;
             crediter = false;
+            client = false;
+            decouvert = false;
+
             if (debiter == true)
             {
                 button1.Text = "Débiter";
             }
             button1.Visible = true;
+
+
+            Form1_Load(sender, e);
         }
 
         private void découvertToolStripMenuItem_Click(object sender, EventArgs e)
@@ -123,6 +147,8 @@ namespace TestBanque
                 button1.Text = "Valider";
             }
             button1.Visible = true;
+
+            Form1_Load(sender, e);
         }
 
         private void clientToolStripMenuItem_Click(object sender, EventArgs e)
@@ -136,7 +162,10 @@ namespace TestBanque
             {
                 button1.Text = "Valider";
             }
+
             button1.Visible = true;
+
+            Form1_Load(sender,e);
         }
 
         private void test()

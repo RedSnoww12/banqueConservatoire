@@ -99,6 +99,7 @@ namespace TestBanque
             this.button1.Size = new System.Drawing.Size(93, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Valider";
+            this.button1.Visible = false;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
