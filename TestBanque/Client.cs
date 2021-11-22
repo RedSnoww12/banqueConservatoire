@@ -11,7 +11,6 @@ namespace TestBanque
 		private int num;
 		private string nom;
 		private string prenom;
-		private string ad;
 
 		public Client(int num, string nom, string prenom, string ad)
 		{
@@ -28,10 +27,12 @@ namespace TestBanque
 		public string Nom
 		{
 			get { return nom; }
+			set { nom = value; }
 		}
 		public string Prenom
 		{
 			get { return prenom; }
+			set { prenom = value; }
 		}
 		public string Adresse
 		{

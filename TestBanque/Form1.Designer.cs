@@ -37,6 +37,9 @@ namespace TestBanque
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.modificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.découvertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +58,8 @@ namespace TestBanque
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.operationToolStripMenuItem});
+            this.operationToolStripMenuItem,
+            this.modificationToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
@@ -116,6 +120,29 @@ namespace TestBanque
             this.textBox1.Size = new System.Drawing.Size(192, 22);
             this.textBox1.TabIndex = 4;
             // 
+            // modificationToolStripMenuItem
+            // 
+            this.modificationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.découvertToolStripMenuItem,
+            this.clientToolStripMenuItem});
+            this.modificationToolStripMenuItem.Name = "modificationToolStripMenuItem";
+            this.modificationToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
+            this.modificationToolStripMenuItem.Text = "Modification";
+            // 
+            // découvertToolStripMenuItem
+            // 
+            this.découvertToolStripMenuItem.Name = "découvertToolStripMenuItem";
+            this.découvertToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.découvertToolStripMenuItem.Text = "Découvert";
+            this.découvertToolStripMenuItem.Click += new System.EventHandler(this.découvertToolStripMenuItem_Click);
+            // 
+            // clientToolStripMenuItem
+            // 
+            this.clientToolStripMenuItem.Name = "clientToolStripMenuItem";
+            this.clientToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clientToolStripMenuItem.Text = "Client";
+            this.clientToolStripMenuItem.Click += new System.EventHandler(this.clientToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -148,6 +175,9 @@ namespace TestBanque
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripMenuItem modificationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem découvertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientToolStripMenuItem;
     }
 }
 

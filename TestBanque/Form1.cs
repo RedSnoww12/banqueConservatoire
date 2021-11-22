@@ -14,6 +14,8 @@ namespace TestBanque
     {
         private bool crediter = false;
         private bool debiter = false;
+        private bool client = false;
+        private bool decouvert = false;
         private string montantString = null;
         private double montant = 0;
         private int numList = 0;
@@ -28,6 +30,7 @@ namespace TestBanque
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            test();
             lb.Items.Clear();
             button1.Visible = false;
             
@@ -80,7 +83,14 @@ namespace TestBanque
             {
                 Settings.Lstcpt[numList].crediter(montant);
             }
+
+            if (decouvert == true)
+            {
+                Settings.Lstcpt[numList].Decouvert = montant;
+            }
+
             Console.WriteLine(Settings.Lstcpt[numList].Description);
+            textBox1.Text = "";
             Form1_Load(sender,e);
 
         }
@@ -99,6 +109,39 @@ namespace TestBanque
                 button1.Text = "Débiter";
             }
             button1.Visible = true;
+        }
+
+        private void découvertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            debiter = false;
+            crediter = false;
+            client = false;
+            decouvert = true;
+
+            if (decouvert == true)
+            {
+                button1.Text = "Valider";
+            }
+            button1.Visible = true;
+        }
+
+        private void clientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            debiter = false;
+            crediter = false;
+            client = true;
+            decouvert = false;
+
+            if (client == true)
+            {
+                button1.Text = "Valider";
+            }
+            button1.Visible = true;
+        }
+
+        private void test()
+        {
+            Console.WriteLine("Test");
         }
 
     }
