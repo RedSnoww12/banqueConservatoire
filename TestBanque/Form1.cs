@@ -17,23 +17,22 @@ namespace TestBanque
         private string montantString = null;
         private double montant = 0;
         private int numList = 0;
-        
-
 
         public Form1()
         {
             InitializeComponent();
+            Settings.Lstcpt.Add(Settings.C1);
+            Settings.Lstcpt.Add(Settings.C2);
+            Settings.Lstcpt.Add(Settings.C3);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             lb.Items.Clear();
             button1.Visible = false;
-            Settings.lstcpt.Add(Settings.c1);
-            Settings.lstcpt.Add(Settings.c2);
-            Settings.lstcpt.Add(Settings.c3);
+            
 
-            foreach (var compte in Settings.lstcpt)
+            foreach (var compte in Settings.Lstcpt)
             {
                 lb.Items.Add(compte.Description);
             }
@@ -74,14 +73,14 @@ namespace TestBanque
 
             if (debiter == true)
             {
-                Settings.lstcpt[numList].debiter(montant);
+                Settings.Lstcpt[numList].debiter(montant);
             }
 
             if (crediter == true)
             {
-                Settings.lstcpt[numList].crediter(montant);
+                Settings.Lstcpt[numList].crediter(montant);
             }
-            Console.WriteLine(Settings.lstcpt[numList].Description);
+            Console.WriteLine(Settings.Lstcpt[numList].Description);
             Form1_Load(sender,e);
 
         }
