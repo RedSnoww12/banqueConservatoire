@@ -17,7 +17,7 @@ namespace TestBanque
         private bool client = false;
         private bool decouvert = false;
         private string montantString = null;
-        private double montant = 0;
+        private double montant = 0.0;
         private int numList = 0;
 
         public Form1()
@@ -90,19 +90,23 @@ namespace TestBanque
         {
 
             montantString = textBox1.Text;
-            montant = Convert.ToDouble(montantString);
 
-            if (debiter == true)
+            if(montantString != "")
+            {
+                montant = Convert.ToDouble(montantString);
+            }
+
+            if (debiter == true && montant != 0.0)
             {
                 Settings.Lstcpt[numList].debiter(montant);
             }
 
-            if (crediter == true)
+            if (crediter == true && montant != 0.0)
             {
                 Settings.Lstcpt[numList].crediter(montant);
             }
 
-            if (decouvert == true)
+            if (decouvert == true && montant != 0.0)
             {
                 Settings.Lstcpt[numList].Decouvert = montant;
             }
