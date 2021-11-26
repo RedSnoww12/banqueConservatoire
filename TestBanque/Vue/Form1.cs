@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestBanque.Model;
 
-namespace TestBanque
+namespace TestBanque.Vue
 {
     public partial class Form1 : Form
     {
@@ -24,11 +25,9 @@ namespace TestBanque
         {
             InitializeComponent();
 
-            Settings.clientSort(Settings.Sacha, Settings.Lea);
+            Settings.clientSort();
 
-            Settings.Lstcpt.Add(Settings.C1);
-            Settings.Lstcpt.Add(Settings.C2);
-            Settings.Lstcpt.Add(Settings.C3);
+            Settings.compteSort();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -77,6 +76,8 @@ namespace TestBanque
             }
 
             button1.Visible = true;
+            label1.Visible = true;
+            textBox1.Visible = true;
 
             Form1_Load(sender, e);
         }
@@ -88,7 +89,7 @@ namespace TestBanque
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
             montantString = textBox1.Text;
 
             if(montantString != "")
@@ -109,6 +110,14 @@ namespace TestBanque
             if (decouvert == true && montant != 0.0)
             {
                 Settings.Lstcpt[numList].Decouvert = montant;
+            }
+
+            if(client == true)
+            {
+                //Compte c = (Compte)lb.SelectedItem;
+                numList = lb.SelectedIndex;
+                FormClient fc = new FormClient(Settings.LstClt[numList]);
+                fc.ShowDialog();
             }
 
             Console.WriteLine(Settings.Lstcpt[numList].Description);
@@ -134,7 +143,8 @@ namespace TestBanque
                 button1.Text = "Débiter";
             }
             button1.Visible = true;
-
+            label1.Visible = true;
+            textBox1.Visible = true;
 
             Form1_Load(sender, e);
         }
@@ -151,12 +161,15 @@ namespace TestBanque
                 button1.Text = "Valider";
             }
             button1.Visible = true;
+            label1.Visible = true;
+            textBox1.Visible = true;
 
             Form1_Load(sender, e);
         }
 
         private void clientToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             debiter = false;
             crediter = false;
             client = true;

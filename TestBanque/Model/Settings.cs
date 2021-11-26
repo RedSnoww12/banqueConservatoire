@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestBanque
+namespace TestBanque.Model
 {
     internal class Settings
     {
@@ -19,6 +19,7 @@ namespace TestBanque
         static private Compte c2 = new Compte(1234, Lea);
         static private Compte c3 = new Compte(12345, Lea);
 
+
         internal static List<Compte> Lstcpt { get => lstcpt; set => lstcpt = value; }
         internal static List<Client> LstClt { get => lstClt; set => lstClt = value; }
 
@@ -29,10 +30,18 @@ namespace TestBanque
         internal static Client Sacha { get => sacha; set => sacha = value; }
         internal static Client Lea { get => lea; set => lea = value; }
 
-        public static void clientSort(Client sacha, Client lea)
+        public static void clientSort()
         {
             lstClt.Add(sacha);
             lstClt.Add(lea);
         }
+
+        public static void compteSort()
+        {
+            lstcpt.Add(c1);
+            lstcpt.Add(c2);
+            lstcpt.Add(c3);
+        }
+
     }
 }

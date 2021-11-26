@@ -1,5 +1,5 @@
 ﻿
-namespace TestBanque
+namespace TestBanque.Vue
 {
     partial class Form1
     {
@@ -34,12 +34,12 @@ namespace TestBanque
             this.operationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.créditerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.débiterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.modificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.découvertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,46 +80,16 @@ namespace TestBanque
             // créditerToolStripMenuItem
             // 
             this.créditerToolStripMenuItem.Name = "créditerToolStripMenuItem";
-            this.créditerToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.créditerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.créditerToolStripMenuItem.Text = "Créditer";
             this.créditerToolStripMenuItem.Click += new System.EventHandler(this.créditerToolStripMenuItem_Click);
             // 
             // débiterToolStripMenuItem
             // 
             this.débiterToolStripMenuItem.Name = "débiterToolStripMenuItem";
-            this.débiterToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.débiterToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.débiterToolStripMenuItem.Text = "Débiter";
             this.débiterToolStripMenuItem.Click += new System.EventHandler(this.débiterToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(527, 389);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Valider";
-            this.button1.Visible = false;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(160, 393);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Montant :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(268, 388);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 22);
-            this.textBox1.TabIndex = 4;
             // 
             // modificationToolStripMenuItem
             // 
@@ -133,16 +103,48 @@ namespace TestBanque
             // découvertToolStripMenuItem
             // 
             this.découvertToolStripMenuItem.Name = "découvertToolStripMenuItem";
-            this.découvertToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.découvertToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.découvertToolStripMenuItem.Text = "Découvert";
             this.découvertToolStripMenuItem.Click += new System.EventHandler(this.découvertToolStripMenuItem_Click);
             // 
             // clientToolStripMenuItem
             // 
             this.clientToolStripMenuItem.Name = "clientToolStripMenuItem";
-            this.clientToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.clientToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.clientToolStripMenuItem.Text = "Client";
             this.clientToolStripMenuItem.Click += new System.EventHandler(this.clientToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(527, 389);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Valider";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(160, 393);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Montant :";
+            this.label1.Visible = false;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(268, 388);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(192, 22);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Visible = false;
             // 
             // Form1
             // 

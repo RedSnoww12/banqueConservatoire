@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TestBanque
+namespace TestBanque.Model
 {
-	class Compte
+	public class Compte
 	{
 		private int num;
 		private Client proprio;

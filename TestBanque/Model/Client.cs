@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TestBanque
+namespace TestBanque.Model
 {
-	class Client
+	public class Client
 	{
 		private string adresse;
 		private List<Compte> comptes = new List<Compte>();
