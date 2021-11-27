@@ -45,8 +45,9 @@ namespace TestBanque.Model
 
 
 		public double Decouvert { get => decouvert; set => decouvert = value; }
+        public Client Proprio { get => proprio; }
 
-		public void crediter(double mont)
+        public void crediter(double mont)
 		{
 			this.solde = this.solde + mont;
 		}

@@ -13,12 +13,18 @@ namespace TestBanque.Vue
 {
     public partial class FormClient : Form
     {
-
         private Client client;
         public FormClient(Client client)
         {
             this.client = client;
             InitializeComponent();
+        }
+
+        private void FormClient_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = client.Nom;
+            textBox2.Text = client.Prenom;
+            textBox3.Text = client.Numero.ToString();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -43,14 +49,13 @@ namespace TestBanque.Vue
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void FormClient_Load(object sender, EventArgs e)
-        {
-            textBox1.Text = client.Nom;
-            textBox2.Text = client.Prenom;
-            textBox3.Text = client.Numero.ToString();
+            if (textBox4.Text != "")
+            {
+                client.Adresse = textBox4.Text;
+                MessageBox.Show("Modification succed");
+                Close();
+            }
+            
         }
     }
 }

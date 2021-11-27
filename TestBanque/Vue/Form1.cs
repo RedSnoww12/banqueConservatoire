@@ -32,10 +32,8 @@ namespace TestBanque.Vue
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            test();
             lb.Items.Clear();
             //button1.Visible = false;
-            
             
             if (client == false)
             {
@@ -114,10 +112,13 @@ namespace TestBanque.Vue
 
             if(client == true)
             {
-                //Compte c = (Compte)lb.SelectedItem;
-                numList = lb.SelectedIndex;
-                FormClient fc = new FormClient(Settings.LstClt[numList]);
-                fc.ShowDialog();
+                Client c = (Client)lb.SelectedItem;
+                //numList = lb.SelectedIndex;
+                if (c != null)
+                {
+                    FormClient fc = new FormClient(c);
+                    fc.ShowDialog();
+                }
             }
 
             Console.WriteLine(Settings.Lstcpt[numList].Description);
@@ -178,16 +179,14 @@ namespace TestBanque.Vue
             if (client == true)
             {
                 button1.Text = "Valider";
+                button1.Location = new Point(246, 316);
+                textBox1.Visible = false;
+                label1.Visible=false;
             }
 
             button1.Visible = true;
 
             Form1_Load(sender,e);
-        }
-
-        private void test()
-        {
-            Console.WriteLine("Test");
         }
 
     }
