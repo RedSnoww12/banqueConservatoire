@@ -72,7 +72,7 @@ namespace TestBanque.Vue
             {
                 button1.Text = "Créditer";
             }
-
+            button1.Location = new Point(378, 317);
             button1.Visible = true;
             label1.Visible = true;
             textBox1.Visible = true;
@@ -134,6 +134,7 @@ namespace TestBanque.Vue
 
         private void débiterToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             debiter = true;
             crediter = false;
             client = false;
@@ -143,6 +144,7 @@ namespace TestBanque.Vue
             {
                 button1.Text = "Débiter";
             }
+            button1.Location = new Point(378, 317);
             button1.Visible = true;
             label1.Visible = true;
             textBox1.Visible = true;
@@ -161,6 +163,7 @@ namespace TestBanque.Vue
             {
                 button1.Text = "Valider";
             }
+            button1.Location = new Point(378, 317);
             button1.Visible = true;
             label1.Visible = true;
             textBox1.Visible = true;
