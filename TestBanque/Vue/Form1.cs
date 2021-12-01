@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,9 @@ namespace TestBanque.Vue
         private double montant = 0.0;
         private int numList = 0;
 
+        //private List<Compte> lstcompte = new List<Compte>();
+        private DbConnection mySql = new DbConnection();
+
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +38,14 @@ namespace TestBanque.Vue
         {
             lb.Items.Clear();
             //button1.Visible = false;
-            
+
+            List<string>[] list = new List<string>[4];
+            list[0] = new List<string>();
+            list[1] = new List<string>();
+            list[2] = new List<string>();
+            list = mySql.Select();
+            Console.WriteLine(list[0]);
+
             if (client == false)
             {
                 foreach (var compte in Settings.Lstcpt)

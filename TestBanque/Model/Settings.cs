@@ -8,13 +8,13 @@ namespace TestBanque.Model
 {
     internal class Settings
     {
-        private static List<Compte> lstcpt = new List<Compte>();
+        
 
         private static Client sacha = new Client(123, "AMARA", "Sacha", "ZBI");
         private static Client lea = new Client(123, "LSJDFL", "Lea", "SBI");
-
         private static List<Client> lstClt = new List<Client>();
 
+        private static List<Compte> lstcpt = new List<Compte>();
         static private Compte c1 = new Compte(123, Sacha);
         static private Compte c2 = new Compte(1234, Lea);
         static private Compte c3 = new Compte(12345, Lea);
