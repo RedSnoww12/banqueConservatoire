@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+
 
 namespace TestBanque.Model
 {
+	[Serializable]
 	public class Compte
 	{
 		private int num;
@@ -49,20 +53,41 @@ namespace TestBanque.Model
 
         public void crediter(double mont)
 		{
-			this.solde = this.solde + mont;
+			if(mont > 0)
+            {
+				this.solde = this.solde + mont;
+			}
+            else
+            {
+				throw (new Exception("Erreur montant négatif ou nul"));
+            }
+			
 		}
 
-		public bool debiter(double mont)
+		public void debiter(double mont)
 		{
-			if (solde - mont < -decouvert)
-			{
-				return false;
+			if(mont > 0)
+            {
+
+				if (solde - mont < -decouvert)
+				{
+					throw (new Exception("Erreur découvert trop faible"));
+
+				}
+				else
+				{
+					this.solde = this.solde - mont;
+
+				}
 			}
-			else
-			{
-				this.solde = this.solde - mont;
-				return true;
+            else
+            {
+				
+				throw (new Exception("Montant négatif ou nul"));
+
+				
 			}
+			
 		}
 	}
 }

@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+
 
 namespace TestBanque.Model
 {
+	[Serializable]
 	public class Client
 	{
 		private string adresse;

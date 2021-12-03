@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestBanque.Model;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+
 
 namespace TestBanque.Vue
 {
@@ -29,37 +32,50 @@ namespace TestBanque.Vue
         {
             InitializeComponent();
 
-            Settings.clientSort();
+            //Settings.clientSort();
 
-            Settings.compteSort();
+            //Settings.compteSort();
+            chargement();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void sauvegarde()
         {
+            FileStream stream = new FileStream("data", FileMode.Create);
+            BinaryFormatter serializer = new BinaryFormatter();
+            serializer.Serialize(stream, Settings.Lstcpt);
+            serializer.Serialize(stream, Settings.LstClt);
+            stream.Close();
+        }
+
+        private void chargement()
+        {
+            if (File.Exists("data"))
+            {
+                BinaryFormatter deserializer = new BinaryFormatter();
+                FileStream stream = new FileStream("data", FileMode.Open);
+                Settings.Lstcpt = (List<Compte>)deserializer.Deserialize(stream);
+                stream.Close();
+            }
+        }
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        { 
             lb.Items.Clear();
             //button1.Visible = false;
 
-            List<string>[] list = new List<string>[4];
+            /*List<string>[] list = new List<string>[4];
             list[0] = new List<string>();
             list[1] = new List<string>();
             list[2] = new List<string>();
             list = mySql.Select();
-            Console.WriteLine(list[0]);
+            Console.WriteLine(list[0]);*/
 
-            if (client == false)
+            foreach (var compte in Settings.Lstcpt)
             {
-                foreach (var compte in Settings.Lstcpt)
-                {
-                    lb.Items.Add(compte.Description);
-                }
+                lb.Items.Add(compte.Description);
             }
-            else
-            {
-                foreach (var client in Settings.LstClt)
-                {
-                    lb.Items.Add(client);
-                }
-            }
+            
         }
 
         private void cToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,17 +119,40 @@ namespace TestBanque.Vue
 
             if(montantString != "")
             {
-                montant = Convert.ToDouble(montantString);
+                try
+                {
+                    montant = Convert.ToDouble(montantString);
+                }
+                catch(Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                
             }
 
             if (debiter == true && montant != 0.0)
             {
-                Settings.Lstcpt[numList].debiter(montant);
+                try
+                {
+                    Settings.Lstcpt[numList].debiter(montant);
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
             }
 
             if (crediter == true && montant != 0.0)
             {
-                Settings.Lstcpt[numList].crediter(montant);
+                try
+                {
+                    Settings.Lstcpt[numList].crediter(montant);
+                }
+                catch(Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+                
             }
 
             if (decouvert == true && montant != 0.0)
@@ -123,7 +162,7 @@ namespace TestBanque.Vue
 
             if(client == true)
             {
-                Client c = (Client)lb.SelectedItem;
+                Client c = Settings.Lstcpt[numList].Proprio;
                 //numList = lb.SelectedIndex;
                 if (c != null)
                 {
@@ -203,5 +242,9 @@ namespace TestBanque.Vue
             Form1_Load(sender,e);
         }
 
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            sauvegarde();
+        }
     }
 }

@@ -46,10 +46,11 @@ namespace TestBanque.Vue
             // lb
             // 
             this.lb.FormattingEnabled = true;
-            this.lb.Location = new System.Drawing.Point(107, 38);
-            this.lb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lb.ItemHeight = 16;
+            this.lb.Location = new System.Drawing.Point(143, 47);
+            this.lb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(358, 251);
+            this.lb.Size = new System.Drawing.Size(476, 308);
             this.lb.TabIndex = 0;
             this.lb.SelectedIndexChanged += new System.EventHandler(this.lb_SelectedIndexChanged);
             // 
@@ -61,8 +62,8 @@ namespace TestBanque.Vue
             this.modificationToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(600, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 26);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -73,20 +74,20 @@ namespace TestBanque.Vue
             this.créditerToolStripMenuItem,
             this.débiterToolStripMenuItem});
             this.operationToolStripMenuItem.Name = "operationToolStripMenuItem";
-            this.operationToolStripMenuItem.Size = new System.Drawing.Size(72, 22);
+            this.operationToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
             this.operationToolStripMenuItem.Text = "Operation";
             // 
             // créditerToolStripMenuItem
             // 
             this.créditerToolStripMenuItem.Name = "créditerToolStripMenuItem";
-            this.créditerToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.créditerToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.créditerToolStripMenuItem.Text = "Créditer";
             this.créditerToolStripMenuItem.Click += new System.EventHandler(this.créditerToolStripMenuItem_Click);
             // 
             // débiterToolStripMenuItem
             // 
             this.débiterToolStripMenuItem.Name = "débiterToolStripMenuItem";
-            this.débiterToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.débiterToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.débiterToolStripMenuItem.Text = "Débiter";
             this.débiterToolStripMenuItem.Click += new System.EventHandler(this.débiterToolStripMenuItem_Click);
             // 
@@ -96,29 +97,29 @@ namespace TestBanque.Vue
             this.découvertToolStripMenuItem,
             this.clientToolStripMenuItem});
             this.modificationToolStripMenuItem.Name = "modificationToolStripMenuItem";
-            this.modificationToolStripMenuItem.Size = new System.Drawing.Size(87, 22);
+            this.modificationToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
             this.modificationToolStripMenuItem.Text = "Modification";
             // 
             // découvertToolStripMenuItem
             // 
             this.découvertToolStripMenuItem.Name = "découvertToolStripMenuItem";
-            this.découvertToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.découvertToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.découvertToolStripMenuItem.Text = "Découvert";
             this.découvertToolStripMenuItem.Click += new System.EventHandler(this.découvertToolStripMenuItem_Click);
             // 
             // clientToolStripMenuItem
             // 
             this.clientToolStripMenuItem.Name = "clientToolStripMenuItem";
-            this.clientToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.clientToolStripMenuItem.Size = new System.Drawing.Size(160, 26);
             this.clientToolStripMenuItem.Text = "Client";
             this.clientToolStripMenuItem.Click += new System.EventHandler(this.clientToolStripMenuItem_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(378, 317);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(504, 390);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 19);
+            this.button1.Size = new System.Drawing.Size(93, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Valider";
             this.button1.UseVisualStyleBackColor = true;
@@ -128,10 +129,9 @@ namespace TestBanque.Vue
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(120, 319);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(160, 393);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(67, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Montant :";
             this.label1.Visible = false;
@@ -139,27 +139,28 @@ namespace TestBanque.Vue
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(206, 316);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Location = new System.Drawing.Point(275, 389);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
+            this.textBox1.Size = new System.Drawing.Size(192, 22);
             this.textBox1.TabIndex = 4;
             this.textBox1.Visible = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 422);
+            this.ClientSize = new System.Drawing.Size(800, 519);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lb);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Compte";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

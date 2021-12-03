@@ -8,9 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestBanque.Model;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace TestBanque.Vue
 {
+    [Serializable]
     public partial class FormClient : Form
     {
         private Client client;
@@ -20,8 +23,10 @@ namespace TestBanque.Vue
             InitializeComponent();
         }
 
+
         private void FormClient_Load(object sender, EventArgs e)
         {
+            
             textBox1.Text = client.Nom;
             textBox2.Text = client.Prenom;
             textBox3.Text = client.Numero.ToString();

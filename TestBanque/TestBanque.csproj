@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Compte.cs" />
+    <Compile Include="Model\CreditException.cs" />
     <Compile Include="Model\DbConnection.cs" />
     <Compile Include="Vue\Form1.cs">
       <SubType>Form</SubType>
