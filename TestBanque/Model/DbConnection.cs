@@ -101,9 +101,55 @@ namespace TestBanque.Model
         }
 
         //Update statement
-        public void Update()
+        public void UpdateCompte(int id_compte, bool debiter, bool crediter, double montant=0.0)
         {
-            string query = "UPDATE tableinfo SET name='Joe', age='22' WHERE name='John Smith'";
+            string query = "";
+
+            if (debiter == true)
+            {
+                /*query = "SELECT solde from Compte where id='" + id_compte + "'";
+
+                if (this.OpenConnection() == true)
+                {
+                    //Create Command
+                    var cmd = new MySqlCommand(query, connection);
+                    //Create a data reader and Execute the command
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        double solde = dataReader.GetDouble(0);
+
+                    }
+                }*/
+
+                if (Settings.Lstcpt[id_compte-1].debiter(montant))
+                {
+                    double solde_compte = 0.0;
+                    solde_compte = Settings.Lstcpt[id_compte-1].getSolde();
+                    double montant_debit = 0.0;
+                    montant_debit = solde_compte - montant;
+
+                    //query = "UPDATE Compte SET solde='(solde)-("+ montant +")' WHERE id='"+ id_compte +"'";
+                    query = "UPDATE Compte SET solde='" + montant_debit + "' WHERE id='" + id_compte + "'";
+                }
+            }
+            else if (crediter == true)
+            {
+                if(Settings.Lstcpt[id_compte-1].crediter(montant))
+                {
+                    double solde_compte = 0.0;
+                    double montant_credit = 0.0;
+
+                    solde_compte = Settings.Lstcpt[id_compte-1].getSolde();
+                    montant_credit = solde_compte + montant;
+
+                    query = "UPDATE Compte SET solde='" + montant_credit + "' WHERE id='" + id_compte + "'";
+                }
+            }
+            else
+            {
+                query = "UPDATE Compte SET decouvert='"+ montant +"' WHERE id = '"+ id_compte +"'";
+            }
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -112,6 +158,30 @@ namespace TestBanque.Model
                 MySqlCommand cmd = new MySqlCommand();
                 //Assign the query using CommandText
                 cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        //Update statement
+        public void UpdateClient(int id_client, string ad)
+        {
+            string query = "UPDATE Client SET adresse='"+ ad +"' WHERE id='"+ id_client +"'";
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+
                 //Assign the connection using Connection
                 cmd.Connection = connection;
 
@@ -136,26 +206,31 @@ namespace TestBanque.Model
         }
 
         //Select statement
-        public List<string>[] Select()
+        public List<string>[] SelectClient()
         {
-            
+            int i = 0, j = 0;
                 string query = "SELECT * FROM Client";
 
-                //Create a list to store the result
-                List<string>[] list = new List<string>[4];
-                list[0] = new List<string>();
-                list[1] = new List<string>();
-                list[2] = new List<string>();
+            //Create a list to store the result
+            List<string>[] list = new List<string>[100];
 
-                //Open connection
-                if (this.OpenConnection() == true)
+            //Open connection
+            if (this.OpenConnection() == true)
                 {
                     //Create Command
                     var cmd = new MySqlCommand(query, connection);
                 //Create a data reader and Execute the command
                     MySqlDataReader dataReader = cmd.ExecuteReader();
                     while (dataReader.Read()) {
-                        Console.WriteLine("{0} {1}", dataReader.GetInt32(0), dataReader.GetString(1));
+                        int id = dataReader.GetInt32(0);
+                        string nom = dataReader.GetString(1);
+                        string prenom = dataReader.GetString(2);
+                        string ad = dataReader.GetString(3);
+                        Client client1 = new Client(id, nom, prenom, ad);
+                        Settings.LstClt.Add(client1);
+
+                        //Console.WriteLine(" {0} : {1} : {2} : {3} ", dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+                        i = i + 1;
                     }
                     
 
@@ -170,8 +245,53 @@ namespace TestBanque.Model
                 }
                 else
                 {
+                    this.CloseConnection();
                     return list;
                 }
+        }
+        public List<string>[] SelectCompte()
+        {
+            int i = 0, j = 0;
+            string query = "SELECT * FROM Compte";
+
+            //Create a list to store the result
+            List<string>[] list = new List<string>[100];
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                var cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    int id = dataReader.GetInt32(0);
+                    int id_client = dataReader.GetInt32(1);
+                    double decouvert = dataReader.GetDouble(2);
+                    double solde = dataReader.GetDouble(3);
+                    Compte c1 = new Compte(id, id_client, solde, decouvert);
+                    Settings.Lstcpt.Add(c1);
+
+                    //Console.WriteLine(" {0} : {1} : {2} : {3} ", dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+                    i = i + 1;
+                }
+
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return list;
+            }
+            else
+            {
+                this.CloseConnection();
+                return list;
+            }
         }
 
         //Count statement

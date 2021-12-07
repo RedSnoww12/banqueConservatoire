@@ -35,7 +35,7 @@ namespace TestBanque.Vue
             //Settings.clientSort();
 
             //Settings.compteSort();
-            chargement();
+            //chargement();
         }
 
         private void sauvegarde()
@@ -61,19 +61,29 @@ namespace TestBanque.Vue
 
         private void Form1_Load(object sender, EventArgs e)
         { 
+
             lb.Items.Clear();
+            Settings.LstClt.Clear();
+            Settings.Lstcpt.Clear();
+            
             //button1.Visible = false;
 
-            /*List<string>[] list = new List<string>[4];
-            list[0] = new List<string>();
-            list[1] = new List<string>();
-            list[2] = new List<string>();
-            list = mySql.Select();
-            Console.WriteLine(list[0]);*/
-
-            foreach (var compte in Settings.Lstcpt)
+            mySql.SelectClient();
+            mySql.SelectCompte();
+            
+            if(client == true)
             {
-                lb.Items.Add(compte.Description);
+                foreach (var compte in Settings.LstClt)
+                {
+                    lb.Items.Add(compte.ToString());
+                }
+            }
+            else
+            {
+                foreach (var compte in Settings.Lstcpt)
+                {
+                    lb.Items.Add(compte.Description);
+                }
             }
             
         }
@@ -134,7 +144,7 @@ namespace TestBanque.Vue
             {
                 try
                 {
-                    Settings.Lstcpt[numList].debiter(montant);
+                    mySql.UpdateCompte(Settings.LstClt[numList].Numero, debiter, crediter, montant);
                 }
                 catch (Exception error)
                 {
@@ -146,7 +156,7 @@ namespace TestBanque.Vue
             {
                 try
                 {
-                    Settings.Lstcpt[numList].crediter(montant);
+                    mySql.UpdateCompte(Settings.LstClt[numList].Numero, debiter, crediter, montant);
                 }
                 catch(Exception error)
                 {
@@ -157,12 +167,12 @@ namespace TestBanque.Vue
 
             if (decouvert == true && montant != 0.0)
             {
-                Settings.Lstcpt[numList].Decouvert = montant;
+                mySql.UpdateCompte(Settings.LstClt[numList].Numero, debiter, crediter, montant);
             }
 
             if(client == true)
             {
-                Client c = Settings.Lstcpt[numList].Proprio;
+                Client c = Settings.LstClt[numList];
                 //numList = lb.SelectedIndex;
                 if (c != null)
                 {
@@ -171,8 +181,8 @@ namespace TestBanque.Vue
                 }
             }
 
-            Console.WriteLine(Settings.Lstcpt[numList].Description);
             textBox1.Text = "";
+            montant = 0.0;
             Form1_Load(sender,e);
 
         }
@@ -244,7 +254,7 @@ namespace TestBanque.Vue
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            sauvegarde();
+            //sauvegarde();
         }
     }
 }

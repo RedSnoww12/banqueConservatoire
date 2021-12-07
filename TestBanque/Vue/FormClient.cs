@@ -12,11 +12,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
 namespace TestBanque.Vue
-{
+{ 
+
     [Serializable]
     public partial class FormClient : Form
     {
         private Client client;
+        private DbConnection mySql = new DbConnection();
         public FormClient(Client client)
         {
             this.client = client;
@@ -27,9 +29,9 @@ namespace TestBanque.Vue
         private void FormClient_Load(object sender, EventArgs e)
         {
             
-            textBox1.Text = client.Nom;
-            textBox2.Text = client.Prenom;
-            textBox3.Text = client.Numero.ToString();
+            textBox1.Text = client.Numero.ToString();
+            textBox2.Text = client.Nom;
+            textBox3.Text = client.Prenom;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace TestBanque.Vue
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -56,7 +58,7 @@ namespace TestBanque.Vue
         {
             if (textBox4.Text != "")
             {
-                client.Adresse = textBox4.Text;
+                mySql.UpdateClient(client.Numero, textBox4.Text);
                 MessageBox.Show("Modification succed");
                 Close();
             }
