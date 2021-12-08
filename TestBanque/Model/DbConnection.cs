@@ -192,6 +192,7 @@ namespace TestBanque.Model
                 this.CloseConnection();
             }
         }
+
         //Delete statement
         public void Delete()
         {
@@ -249,14 +250,11 @@ namespace TestBanque.Model
                     return list;
                 }
         }
-        public List<string>[] SelectCompte()
+        public bool SelectCompte()
         {
             int i = 0, j = 0;
-            string query = "SELECT * FROM Compte";
-
-            //Create a list to store the result
-            List<string>[] list = new List<string>[100];
-
+            string query = "SELECT Compte.id, Client.id, decouvert, solde, nom, prenom, adresse FROM Compte LEFT JOIN Client ON Compte.id_client = Client.id";
+            
             //Open connection
             if (this.OpenConnection() == true)
             {
@@ -266,11 +264,18 @@ namespace TestBanque.Model
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
+                    
                     int id = dataReader.GetInt32(0);
                     int id_client = dataReader.GetInt32(1);
                     double decouvert = dataReader.GetDouble(2);
                     double solde = dataReader.GetDouble(3);
-                    Compte c1 = new Compte(id, id_client, solde, decouvert);
+                    string nom = dataReader.GetString(4);
+                    string prenom = dataReader.GetString(5);
+                    string adresse = dataReader.GetString(6);
+
+
+                    Client client1 = new Client(id_client, nom, prenom, adresse);
+                    Compte c1 = new Compte(id, client1, solde, decouvert);
                     Settings.Lstcpt.Add(c1);
 
                     //Console.WriteLine(" {0} : {1} : {2} : {3} ", dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
@@ -285,12 +290,12 @@ namespace TestBanque.Model
                 this.CloseConnection();
 
                 //return list to be displayed
-                return list;
+                return true;
             }
             else
             {
                 this.CloseConnection();
-                return list;
+                return false;
             }
         }
 

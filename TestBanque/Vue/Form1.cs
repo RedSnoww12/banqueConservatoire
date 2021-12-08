@@ -73,9 +73,9 @@ namespace TestBanque.Vue
             
             if(client == true)
             {
-                foreach (var compte in Settings.LstClt)
+                foreach (var client in Settings.LstClt)
                 {
-                    lb.Items.Add(compte.ToString());
+                    lb.Items.Add(client.ToString());
                 }
             }
             else

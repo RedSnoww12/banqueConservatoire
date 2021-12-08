@@ -61,7 +61,7 @@ namespace TestBanque.Model
 		public string Description
 		{
 			get
-			{ return id + " " + id_client + " " + solde + " €"; }
+			{ return id + " " + proprio + " " + solde + " €"; }
 		}
 
 
