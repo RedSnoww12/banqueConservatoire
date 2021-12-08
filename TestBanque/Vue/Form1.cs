@@ -256,5 +256,11 @@ namespace TestBanque.Vue
         {
             //sauvegarde();
         }
+
+        private void nouveauClientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormNewClient FormNewClt = new FormNewClient();
+            FormNewClt.ShowDialog();
+        }
     }
 }

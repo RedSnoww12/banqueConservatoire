@@ -40,6 +40,7 @@ namespace TestBanque.Vue
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nouveauClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,8 @@ namespace TestBanque.Vue
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.operationToolStripMenuItem,
-            this.modificationToolStripMenuItem});
+            this.modificationToolStripMenuItem,
+            this.nouveauClientToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
@@ -146,6 +148,13 @@ namespace TestBanque.Vue
             this.textBox1.TabIndex = 4;
             this.textBox1.Visible = false;
             // 
+            // nouveauClientToolStripMenuItem
+            // 
+            this.nouveauClientToolStripMenuItem.Name = "nouveauClientToolStripMenuItem";
+            this.nouveauClientToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
+            this.nouveauClientToolStripMenuItem.Text = "Nouveau Client";
+            this.nouveauClientToolStripMenuItem.Click += new System.EventHandler(this.nouveauClientToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -182,6 +191,7 @@ namespace TestBanque.Vue
         private System.Windows.Forms.ToolStripMenuItem modificationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem découvertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nouveauClientToolStripMenuItem;
     }
 }
 

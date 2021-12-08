@@ -82,9 +82,26 @@ namespace TestBanque.Model
         }
 
         //Insert statement
-        public void Insert()
+        public bool InsertClient(string nom, string prenom, string adresse)
         {
-            string query = "INSERT INTO Client (nom, prenom, adresse) VALUES('John Smith', '33', '')";
+
+            foreach(char c in nom)
+            {
+                if(c >= '0' && c <= '9')
+                {
+                    throw new Exception("Votre nom ne peut contenir un Chiffre !");
+                }
+            }
+
+            foreach (char c in prenom)
+            {
+                if (c >= '0' && c <= '9')
+                {
+                    throw new Exception("Votre prénom ne peut contenir un Chiffre !");
+                }
+            }
+
+            string query = "INSERT INTO Client (nom, prenom, adresse) VALUES('"+ nom +"', '"+ prenom +"', '"+ adresse +"')";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -98,6 +115,7 @@ namespace TestBanque.Model
                 //close connection
                 this.CloseConnection();
             }
+            return true;
         }
 
         //Update statement
@@ -107,21 +125,6 @@ namespace TestBanque.Model
 
             if (debiter == true)
             {
-                /*query = "SELECT solde from Compte where id='" + id_compte + "'";
-
-                if (this.OpenConnection() == true)
-                {
-                    //Create Command
-                    var cmd = new MySqlCommand(query, connection);
-                    //Create a data reader and Execute the command
-                    MySqlDataReader dataReader = cmd.ExecuteReader();
-                    while (dataReader.Read())
-                    {
-                        double solde = dataReader.GetDouble(0);
-
-                    }
-                }*/
-
                 if (Settings.Lstcpt[id_compte-1].debiter(montant))
                 {
                     double solde_compte = 0.0;
