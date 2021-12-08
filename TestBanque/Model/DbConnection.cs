@@ -130,9 +130,8 @@ namespace TestBanque.Model
                     double solde_compte = 0.0;
                     solde_compte = Settings.Lstcpt[id_compte-1].getSolde();
                     double montant_debit = 0.0;
-                    montant_debit = solde_compte - montant;
+                    montant_debit = solde_compte;
 
-                    //query = "UPDATE Compte SET solde='(solde)-("+ montant +")' WHERE id='"+ id_compte +"'";
                     query = "UPDATE Compte SET solde='" + montant_debit + "' WHERE id='" + id_compte + "'";
                 }
             }
@@ -144,7 +143,7 @@ namespace TestBanque.Model
                     double montant_credit = 0.0;
 
                     solde_compte = Settings.Lstcpt[id_compte-1].getSolde();
-                    montant_credit = solde_compte + montant;
+                    montant_credit = solde_compte;
 
                     query = "UPDATE Compte SET solde='" + montant_credit + "' WHERE id='" + id_compte + "'";
                 }
