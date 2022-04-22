@@ -8,15 +8,15 @@ using System.IO;
 namespace TestBanque.Model
 {
 	[Serializable]
-	public class Client
+	public class Adherent
 	{
 		private string adresse;
-		private List<Compte> comptes = new List<Compte>();
+		private List<Compte> Inscription;
 		private int num;
 		private string nom;
 		private string prenom;
 
-		public Client(int num, string nom, string prenom, string ad)
+		public Adherent(int num, string nom, string prenom, string ad)
 		{
 			this.num = num;
 			this.nom = nom;

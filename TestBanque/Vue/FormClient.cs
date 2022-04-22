@@ -17,9 +17,8 @@ namespace TestBanque.Vue
     [Serializable]
     public partial class FormClient : Form
     {
-        private Client client;
-        private DbConnection mySql = new DbConnection();
-        public FormClient(Client client)
+        private Adherent client;
+        public FormClient(Adherent client)
         {
             this.client = client;
             InitializeComponent();
@@ -58,7 +57,6 @@ namespace TestBanque.Vue
         {
             if (textBox4.Text != "")
             {
-                mySql.UpdateClient(client.Numero, textBox4.Text);
                 MessageBox.Show("Modification succed");
                 Close();
             }
