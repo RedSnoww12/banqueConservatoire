@@ -11,7 +11,7 @@ namespace TestBanque.Model
 	public class Adherent
 	{
 		private string adresse;
-		private List<Compte> Inscription;
+		private List<Inscritption> Inscription;
 		private int num;
 		private string nom;
 		private string prenom;
