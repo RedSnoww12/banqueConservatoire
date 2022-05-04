@@ -9,16 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestBanque.Model;
+using TestBanque.Controleur;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Diagnostics;
 
 
 namespace TestBanque.Vue
 {
     public partial class Form1 : Form
     {
-
-
+        private Manager monManager = new Manager();
+        private List<Adherent> lstAdherent = new List<Adherent>();
         public Form1()
         {
             InitializeComponent();
@@ -28,8 +30,13 @@ namespace TestBanque.Vue
 
 
         private void Form1_Load(object sender, EventArgs e)
-        { 
+        {
+            lstAdherent = monManager.listAdherent();
 
+            foreach(var adherent in lstAdherent)
+            {
+                Debug.WriteLine(adherent.ToString());
+            }
             
         }
 

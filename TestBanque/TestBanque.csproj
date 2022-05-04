@@ -124,8 +124,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controleur\Manager.cs" />
+    <Compile Include="DAL\AdherentDao.cs" />
     <Compile Include="DAL\ConnectionSql.cs" />
+    <Compile Include="DAL\CoursDao.cs" />
     <Compile Include="DAL\Fabrique.cs" />
+    <Compile Include="DAL\InscriptionDao.cs" />
+    <Compile Include="DAL\InstrumentDao.cs" />
+    <Compile Include="DAL\ProfesseurDao.cs" />
     <Compile Include="Model\Adherent.cs" />
     <Compile Include="Model\Cours.cs" />
     <Compile Include="Model\CreditException.cs" />
@@ -139,19 +144,10 @@
     <Compile Include="Vue\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vue\FormClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vue\FormClient.Designer.cs">
-      <DependentUpon>FormClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Vue\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vue\FormClient.resx">
-      <DependentUpon>FormClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

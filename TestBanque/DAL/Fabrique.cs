@@ -10,11 +10,11 @@ namespace TestBanque.DAL
     {
         private static string providerMysql = "localhost";
 
-        private static string dataBaseMysql = "comptes";
+        private static string dataBaseMysql = "bd_zicmu";
 
-        private static string uidMysql = "efrei";
+        private static string uidMysql = "root";
 
-        private static string mdpMysql = "root";
+        private static string mdpMysql = "";
 
         public static string ProviderMysql { get => providerMysql; }
         public static string DataBaseMysql { get => dataBaseMysql; }

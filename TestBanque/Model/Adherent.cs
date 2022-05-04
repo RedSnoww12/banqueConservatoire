@@ -8,45 +8,18 @@ using System.IO;
 namespace TestBanque.Model
 {
 	[Serializable]
-	public class Adherent
+	public class Adherent : Person
 	{
-		private string adresse;
-		private List<Inscritption> Inscription;
-		private int num;
-		private string nom;
-		private string prenom;
+		private int niveau;
+		private int idStudent;
 
-		public Adherent(int num, string nom, string prenom, string ad)
+		public Adherent(int num, string nom, string prenom, string ad, string telephone, string mail, int niveau = 1) : base(num,nom,prenom,ad,telephone,mail)
 		{
-			this.num = num;
-			this.nom = nom;
-			this.prenom = prenom;
-			this.adresse = ad;
+			this.idStudent = num;
+			this.niveau = niveau;
 		}
 
-		public int Numero
-		{
-			get { return num; }
-		}
-		public string Nom
-		{
-			get { return nom; }
-			set { nom = value; }
-		}
-		public string Prenom
-		{
-			get { return prenom; }
-			set { prenom = value; }
-		}
-		public string Adresse
-		{
-			get { return adresse; }
-			set { adresse = value; }
-		}
 
-		public override string ToString()
-		{
-			return (this.nom + " ; " + this.prenom + " ; " + this.adresse);
-		}
+
 	}
 }
