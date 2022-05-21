@@ -13,6 +13,7 @@ namespace TestBanque.Model
 		private int niveau;
 		private int idStudent;
 
+		public Adherent() { }
 		public Adherent(int num, string nom, string prenom, string ad, string telephone, string mail, int niveau = 1) : base(num,nom,prenom,ad,telephone,mail)
 		{
 			this.idStudent = num;

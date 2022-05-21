@@ -21,6 +21,7 @@ namespace TestBanque.Vue
     {
         private Manager monManager = new Manager();
         private List<Adherent> lstAdherent = new List<Adherent>();
+        private List<Inscription> lstInscriptionFromStudent = new List<Inscription>();
         public Form1()
         {
             InitializeComponent();
@@ -28,16 +29,22 @@ namespace TestBanque.Vue
 
         }
 
+        private void ComboBox_Load(object sender, List<Adherent> lstAdherent)
+        {
+            var combo = sender as ComboBox;
+
+            foreach (var adherent in lstAdherent)
+            {
+                combo.Items.Add(adherent);
+            }
+            //combo.SelectedIndex = 0;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             lstAdherent = monManager.listAdherent();
 
-            foreach(var adherent in lstAdherent)
-            {
-                Debug.WriteLine(adherent.ToString());
-            }
-            
+            this.ComboBox_Load(comboBox1, lstAdherent);
         }
 
         private void cToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,7 +99,14 @@ namespace TestBanque.Vue
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            var selectAdherent = comboBox1.SelectedItem as Adherent;
+            Debug.WriteLine(selectAdherent);
+            lstInscriptionFromStudent = monManager.getInscriptionFromStudent(selectAdherent);
+            lb.Items.Clear();
+            foreach(var inscri in lstInscriptionFromStudent)
+            {
+                lb.Items.Add(inscri);
+            }
         }
     }
 }

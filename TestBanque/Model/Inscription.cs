@@ -6,31 +6,36 @@ using System.Threading.Tasks;
 
 namespace TestBanque.Model
 {
-    class Inscritption
+    class Inscription
     {
         private Adherent unAdherent;
         private Cours unCours;
 
-        bool payee = false;
+        private int payee;
 
-        public Inscritption()
+        public Inscription()
         {
 
         }
 
-        public Inscritption(Adherent unAdherent, Cours unCours, bool payee = false)
+        public Inscription(Adherent unAdherent, Cours unCours, int payee = 1)
         {
             this.unAdherent = unAdherent;
             this.unCours = unCours;
-            this.Payee = payee;
+            this.payee = payee;
+        }
+
+        public override string ToString()
+        {
+            return (this.unAdherent.ToString()+" "+this.unCours.getNum()+" "+ this.payee);
         }
 
         public int insciPayee()
         {
-            Payee = true;
+            this.payee = 0;
             return 0;
         }
 
-        public bool Payee { get => payee; set => payee = value; }
+        public int Payee { get => payee; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestBanque.Model
 {
-    public class Person
+    public abstract class Person
     {
         protected int idP;
         protected string nom;
@@ -15,6 +15,7 @@ namespace TestBanque.Model
         protected string tel;
         protected string mail;
 
+        public Person() { }
         public Person(int idP, string nom, string prenom, string adresse, string tel, string mail)
         {
             this.idP = idP;
@@ -31,5 +32,7 @@ namespace TestBanque.Model
 
             return (this.idP + "   " + this.nom + " " + this.prenom);
         }
+
+        public int IdP { get => idP; }
     }
 }

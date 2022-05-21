@@ -11,10 +11,56 @@ namespace TestBanque.Controleur
     class Manager
     {
         private AdherentDao adao = new AdherentDao();
+        private ProfesseurDao pdao = new ProfesseurDao();
+        private InstrumentDao idao = new InstrumentDao();
+        private CoursDao cdao = new CoursDao();
+        private InscriptionDao inscrdao = new InscriptionDao();
 
         public List<Adherent> listAdherent()
         {
             return (adao.getAdherents());
+        }
+
+        public List<Professeur> listProfesseurs()
+        {
+            return (pdao.getProfesseurs());
+        }
+
+        public Professeur OneProfesseur(int id)
+        {
+            return (pdao.getOneProfesseur(id));
+        }
+
+        public Adherent OneAdherent(int id)
+        {
+            return (adao.getOneAdherents(id));
+        }
+
+        public List<Instrument> getInstruments()
+        {
+            return (idao.getInstruments());
+        }
+
+        public Instrument getOneInstrument(int id)
+        {
+            return (idao.getOneInstrument(id));
+        }
+
+        public List<Cours> getCours()
+        {
+            return cdao.getCours();
+        }
+        public Cours getOneCours(int id)
+        {
+            return (cdao.getOneCours(id));
+        }
+        public List<Inscription> getInscriptions()
+        {
+            return (inscrdao.getInscriptions());
+        }
+        public List<Inscription> getInscriptionFromStudent(Adherent student)
+        {
+            return (inscrdao.getInscriptionFromStudent(student));
         }
     }
 }

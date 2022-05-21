@@ -134,7 +134,7 @@
     <Compile Include="Model\Adherent.cs" />
     <Compile Include="Model\Cours.cs" />
     <Compile Include="Model\CreditException.cs" />
-    <Compile Include="Model\Inscritption.cs" />
+    <Compile Include="Model\Inscription.cs" />
     <Compile Include="Model\Instrument.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Professeur.cs" />
