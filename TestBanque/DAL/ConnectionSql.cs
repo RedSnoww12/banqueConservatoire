@@ -59,12 +59,12 @@ namespace TestBanque.DAL
                 {
 
 
-                    if (null == connection)
-                    { // Premier appel
+                    /*if (null == connection)
+                    { // Premier appel*/
                         connection = new ConnectionSql(unProvider, uneDataBase, unUid, unMdp);
 
 
-                    }
+                    //}
 
                 }
                 catch (Exception emp)

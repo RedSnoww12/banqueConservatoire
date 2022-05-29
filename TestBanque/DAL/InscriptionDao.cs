@@ -70,7 +70,9 @@ namespace TestBanque.DAL
 
         public List<Inscription> getInscriptionFromStudent(Adherent student)
         {
+            object mylock = new object();
             List<Inscription> lstInsci = new List<Inscription>();
+
 
             try
             {
@@ -95,13 +97,12 @@ namespace TestBanque.DAL
                 while (reader.Read())
                 {
 
-                    int numCours = (int)reader.GetValue(0);
-                    int numStudent = (int)reader.GetValue(1);
-                    int paye = (int)reader.GetValue(2);
-
+                    int numStudent = (int)reader.GetValue(0);
+                    int numCours = (int)reader.GetValue(1);
+                    int paye = (int)reader.GetValue(2);;
 
                     Adherent student1 = adao.getOneAdherents(numStudent);
-
+                    
                     Cours cours = cdao.getOneCours(numCours);
 
                     Inscription inscri = new Inscription(student1, cours, paye);
@@ -114,6 +115,7 @@ namespace TestBanque.DAL
                 reader.Close();
                 reader.Dispose();
                 maConnexionSql.closeConnection();
+
             }
 
             catch (Exception err)

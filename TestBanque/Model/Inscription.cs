@@ -27,7 +27,7 @@ namespace TestBanque.Model
 
         public override string ToString()
         {
-            return (this.unAdherent.ToString()+" "+this.unCours.getNum()+" "+ this.payee);
+            return ("Adherent: "+this.unAdherent.ToString()+" ; Numéro du Cours: "+this.unCours.getNum()+" ; Payé : "+ this.payee);
         }
 
         public int insciPayee()
