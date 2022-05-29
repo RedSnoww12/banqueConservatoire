@@ -126,6 +126,28 @@ namespace TestBanque.DAL
             return lstInsci;
         }
 
+        public void validateInscription(Inscription inscription)
+        {
+            try
+            {
+                maConnexionSql = ConnectionSql.getInstance(Fabrique.ProviderMysql, Fabrique.DataBaseMysql, Fabrique.UidMysql, Fabrique.MdpMysql);
 
+                maConnexionSql.openConnection();
+
+
+
+                Ocom = maConnexionSql.reqExec("UPDATE inscription SET paye="+ inscription.Payee + " WHERE idStudent="+inscription.UnAdherent.IdP+" AND idCours="+inscription.UnCours.Num+";");
+
+                Ocom.ExecuteNonQuery();
+
+                maConnexionSql.closeConnection();
+
+            }
+
+            catch (Exception err)
+            {
+                throw (new Exception("" + err));
+            }
+        }
     }
 }

@@ -62,5 +62,9 @@ namespace TestBanque.Controleur
         {
             return (inscrdao.getInscriptionFromStudent(student));
         }
+        public void validateInscription(Inscription inscription)
+        {
+            inscrdao.validateInscription(inscription);
+        }
     }
 }

@@ -67,7 +67,6 @@ namespace TestBanque.Vue
             this.button1.TabIndex = 2;
             this.button1.Text = "Valider";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
@@ -88,7 +87,6 @@ namespace TestBanque.Vue
             this.button2.TabIndex = 6;
             this.button2.Text = "Supprimer";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
             // 
             // panel1
             // 

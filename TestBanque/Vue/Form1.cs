@@ -64,13 +64,35 @@ namespace TestBanque.Vue
 
         private void lb_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            if (lb.SelectedItem == null)
+            {
+            }
+            else
+            {
+                panel1.Visible = true;
+
+                var inscri = lb.SelectedItem as Inscription;
+
+                if (inscri.Payee == 0)
+                {
+                    panel1.BackColor = Color.Green;
+                }
+                else panel1.BackColor = Color.Red;
+            }
+
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-           
+            var inscri = lb.SelectedItem as Inscription;
+
+            inscri.insciPayee();
+
+            monManager.validateInscription(inscri);
+
+            this.refresh_adherentInscriptions();
 
         }
 
@@ -99,11 +121,15 @@ namespace TestBanque.Vue
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.refresh_adherentInscriptions();
+        }
+
+        private void refresh_adherentInscriptions()
+        {
             var selectAdherent = comboBox1.SelectedItem as Adherent;
-            Debug.WriteLine(selectAdherent);
             lstInscriptionFromStudent = monManager.getInscriptionFromStudent(selectAdherent);
             lb.Items.Clear();
-            foreach(var inscri in lstInscriptionFromStudent)
+            foreach (var inscri in lstInscriptionFromStudent)
             {
                 lb.Items.Add(inscri);
             }

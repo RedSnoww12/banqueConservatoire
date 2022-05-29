@@ -45,5 +45,7 @@ namespace TestBanque.Model
         {
             return this.nbPlace;
         }
+
+        public int Num { get => num; }
     }
 }

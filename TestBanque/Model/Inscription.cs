@@ -37,5 +37,7 @@ namespace TestBanque.Model
         }
 
         public int Payee { get => payee; }
+        public Adherent UnAdherent { get => unAdherent; }
+        public Cours UnCours { get => unCours; }
     }
 }
