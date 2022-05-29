@@ -55,6 +55,7 @@ namespace TestBanque.DAL
                 }
 
                 reader.Close();
+                reader.Dispose();
                 maConnexionSql.closeConnection();
             }
 
@@ -98,6 +99,7 @@ namespace TestBanque.DAL
                     int numStudent = (int)reader.GetValue(1);
                     int paye = (int)reader.GetValue(2);
 
+
                     Adherent student1 = adao.getOneAdherents(numStudent);
 
                     Cours cours = cdao.getOneCours(numCours);
@@ -106,9 +108,11 @@ namespace TestBanque.DAL
 
                     lstInsci.Add(inscri);
 
+
                 }
 
                 reader.Close();
+                reader.Dispose();
                 maConnexionSql.closeConnection();
             }
 

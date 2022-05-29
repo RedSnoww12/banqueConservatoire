@@ -52,30 +52,30 @@ namespace TestBanque.DAL
         public static ConnectionSql getInstance(string unProvider, string uneDataBase, string unUid, string unMdp)
         {
 
-            //       lock ((mylock))
-            //    {
-
-            try
+            lock ((mylock))
             {
 
+                try
+                {
 
-                if (null == connection)
-                { // Premier appel
-                    connection = new ConnectionSql(unProvider, uneDataBase, unUid, unMdp);
+
+                    if (null == connection)
+                    { // Premier appel
+                        connection = new ConnectionSql(unProvider, uneDataBase, unUid, unMdp);
+
+
+                    }
+
+                }
+                catch (Exception emp)
+                {
+                    throw (emp);
 
 
                 }
+                return connection;
 
             }
-            catch (Exception emp)
-            {
-                throw (emp);
-
-
-            }
-            return connection;
-
-            //  }
         }
 
 

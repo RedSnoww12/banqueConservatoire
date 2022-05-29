@@ -40,6 +40,7 @@ namespace TestBanque.DAL
 
                 }
                 reader.Close();
+                reader.Dispose();
                 maConnectionSql.closeConnection();
             }
             catch (Exception err)
@@ -79,6 +80,7 @@ namespace TestBanque.DAL
                 }
 
                 reader.Close();
+                reader.Dispose();
                 maConnectionSql.closeConnection();
             }
 

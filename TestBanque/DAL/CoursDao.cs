@@ -54,6 +54,7 @@ namespace TestBanque.DAL
                 }
 
                 reader.Close();
+                reader.Dispose();
                 maConnectionSql.closeConnection();
             }
 
@@ -100,6 +101,7 @@ namespace TestBanque.DAL
                 }
 
                 reader.Close();
+                reader.Dispose();
                 maConnectionSql.closeConnection();
             }
 

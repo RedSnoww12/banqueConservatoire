@@ -51,6 +51,7 @@ namespace TestBanque.DAL
                 }
 
                 reader.Close();
+                reader.Dispose();
                 maConnectionSql.closeConnection();
             }
 
@@ -64,7 +65,7 @@ namespace TestBanque.DAL
 
         public Adherent getOneAdherents(int id)
         {
-            Adherent prof = new Adherent();
+            Adherent student = new Adherent();
             try
             {
                 maConnectionSql = ConnectionSql.getInstance(Fabrique.ProviderMysql, Fabrique.DataBaseMysql, Fabrique.UidMysql, Fabrique.MdpMysql);
@@ -88,10 +89,11 @@ namespace TestBanque.DAL
                     string mail = (string)reader.GetValue(5);
                     int salaire = (int)reader.GetValue(6);
 
-                    prof = new Adherent(num, nom, prenom, telephone, adresse, mail, salaire);
+                    student = new Adherent(num, nom, prenom, telephone, adresse, mail, salaire);
 
                 }
                 reader.Close();
+                reader.Dispose();
                 maConnectionSql.closeConnection();
             }
             catch (Exception err)
@@ -99,7 +101,7 @@ namespace TestBanque.DAL
                 throw (new Exception("" + err));
             }
 
-            return prof;
+            return student;
         }
     }
 }
