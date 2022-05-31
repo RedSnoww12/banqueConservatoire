@@ -149,5 +149,25 @@ namespace TestBanque.DAL
                 throw (new Exception("" + err));
             }
         }
+
+        public void supp_Inscription(Inscription inscription)
+        {
+            try
+            {
+                maConnexionSql = ConnectionSql.getInstance(Fabrique.ProviderMysql, Fabrique.DataBaseMysql, Fabrique.UidMysql, Fabrique.MdpMysql);
+
+                maConnexionSql.openConnection();
+
+                Ocom = maConnexionSql.reqExec("DELETE FROM inscription WHERE idStudent=" + inscription.UnAdherent.IdP + " AND idCours=" + inscription.UnCours.Num + ";");
+
+                Ocom.ExecuteNonQuery();
+
+                maConnexionSql.closeConnection();
+            }
+            catch (Exception err)
+            {
+                throw (new Exception("" + err));
+            }
+        }
     }
 }

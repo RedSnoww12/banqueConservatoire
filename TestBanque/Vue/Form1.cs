@@ -86,13 +86,20 @@ namespace TestBanque.Vue
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var inscri = lb.SelectedItem as Inscription;
+            if (lb.SelectedItem == null)
+            {
+                MessageBox.Show("Vous devez selectionner un adhérent ainsi qu'un inscription !");
+            }
+            else
+            {
+                var inscri = lb.SelectedItem as Inscription;
 
-            inscri.insciPayee();
+                inscri.insciPayee();
 
-            monManager.validateInscription(inscri);
+                monManager.validateInscription(inscri);
 
-            this.refresh_adherentInscriptions();
+                this.refresh_adherentInscriptions();
+            }
 
         }
 
@@ -132,6 +139,22 @@ namespace TestBanque.Vue
             foreach (var inscri in lstInscriptionFromStudent)
             {
                 lb.Items.Add(inscri);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (lb.SelectedItem == null)
+            {
+                MessageBox.Show("Vous devez selectionner un adhérent ainsi qu'un inscription !");
+            }
+            else
+            {
+                var inscription = lb.SelectedItem as Inscription;
+
+                monManager.supp_Inscription(inscription);
+
+                refresh_adherentInscriptions();
             }
         }
     }

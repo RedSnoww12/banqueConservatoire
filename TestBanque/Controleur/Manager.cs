@@ -66,5 +66,10 @@ namespace TestBanque.Controleur
         {
             inscrdao.validateInscription(inscription);
         }
+        public void supp_Inscription(Inscription inscription)
+        {
+            inscrdao.supp_Inscription(inscription);
+        }
+
     }
 }
