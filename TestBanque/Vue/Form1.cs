@@ -99,6 +99,8 @@ namespace TestBanque.Vue
                 monManager.validateInscription(inscri);
 
                 this.refresh_adherentInscriptions();
+                panel1.BackColor = Color.Green;
+
             }
 
         }
